@@ -30,7 +30,7 @@ else
     ./easyrsa init-pki
     ./easyrsa build-ca nopass
     ./easyrsa build-server-full server nopass
-    ./easyrsa build-client-full testing-terraform-for-fun.com nopass
+    ./easyrsa build-client-full # add domain name here, then uncomment out nopass => # nopass
     mkdir certs/
     cp pki/ca.crt certs/
     cp pki/issued/server.crt certs/

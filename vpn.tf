@@ -1,5 +1,5 @@
 resource "aws_acm_certificate" "vpn_server" {
-  domain_name = "testing-terraform-for-fun.com"
+  domain_name = "" # <= Domain Name here
   validation_method = "DNS"
 
   tags = local.global_tags
@@ -18,9 +18,9 @@ resource "aws_acm_certificate_validation" "vpn_server" {
 }
 
 resource "aws_acm_certificate" "vpn_client_root" {
-  private_key = file("easy-rsa/easyrsa3/certs/testing-terraform-for-fun.com.key")
-  certificate_body = file("easy-rsa/easyrsa3/certs/testing-terraform-for-fun.com.crt")
-  certificate_chain = file("easy-rsa/easyrsa3/certs/ca.crt")
+  private_key = file("easy-rsa/easyrsa3/certs/.key") # Add name of key here
+  certificate_body = file("easy-rsa/easyrsa3/certs/.crt") # Add name of crt here
+  certificate_chain = file("easy-rsa/easyrsa3/certs/.crt") # Add name of chain crt here
 
   tags = local.global_tags
 }
