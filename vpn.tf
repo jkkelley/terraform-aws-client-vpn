@@ -18,9 +18,9 @@ resource "aws_acm_certificate_validation" "vpn_server" {
 }
 
 resource "aws_acm_certificate" "vpn_client_root" {
-  private_key = file("certs/client-vpn-ca.key")
-  certificate_body = file("certs/client-vpn-ca.crt")
-  certificate_chain = file("certs/ca-chain.crt")
+  private_key = file("easy-rsa/easyrsa3/certs/testing-terraform-for-fun.com.key")
+  certificate_body = file("easy-rsa/easyrsa3/certs/testing-terraform-for-fun.com.crt")
+  certificate_chain = file("easy-rsa/easyrsa3/certs/ca.crt")
 
   tags = local.global_tags
 }
